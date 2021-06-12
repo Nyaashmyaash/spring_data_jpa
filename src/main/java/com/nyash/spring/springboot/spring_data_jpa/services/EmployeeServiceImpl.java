@@ -4,8 +4,6 @@ import com.nyash.spring.springboot.spring_data_jpa.dao.EmployeeRepository;
 import com.nyash.spring.springboot.spring_data_jpa.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,5 +35,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void deleteEmployee(int id) {
         employeeRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Employee> findAllByName(String name) {
+        List<Employee> employees = employeeRepository.findAllByName(name)
+        return employees;
     }
 }
